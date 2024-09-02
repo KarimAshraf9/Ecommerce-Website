@@ -41,8 +41,8 @@ export default function Wishlist() {
             <h1 className="text-5xl font-bold text-gray-700">Your Wishlist</h1>
           </div>
           <div className="relatvive overflow-x-auto shadow-md sm:rounded-lg">
-            <table className="min-w-[400px] sm:w-full  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-              <thead className="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table className="min-w-[400px] sm:w-full  text-sm text-left rtl:text-right text-gray-500">
+              <thead className="text-sm text-gray-700 uppercase bg-gray-50">
                 <tr>
                   <th scope="col" className="px-16 py-3">
                     <span className="sr-only">Image</span>
@@ -77,7 +77,7 @@ export default function Wishlist() {
                 {data.map((whishList) => (
                   <tr
                     key={whishList._id}
-                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    className="bg-white border-b hover:bg-gray-50"
                   >
                     <td className="p-4">
                       <img
@@ -86,10 +86,10 @@ export default function Wishlist() {
                         alt={whishList.title}
                       />
                     </td>
-                    <td className="w-min-[160px] md:w-auto md:px-6 md:py-4 text-center font-semibold text-gray-900 dark:text-white">
+                    <td className="w-min-[160px] md:w-auto md:px-6 md:py-4 text-center font-semibold text-gray-900">
                       {whishList.title}
                     </td>
-                    <td className="w-min-[160px] md:w-auto md:px-6 md:py-4 text-center font-semibold text-gray-900 dark:text-white">
+                    <td className="w-min-[160px] md:w-auto md:px-6 md:py-4 text-center font-semibold text-gray-900">
                       LE {whishList.price}
                     </td>
                     <td className="w-min-[160px] md:w-auto md:px-6 md:py-4 text-center">
@@ -113,7 +113,7 @@ export default function Wishlist() {
                           });
                         }}
                         disabled={isPending}
-                        className="text-red-600 font-medium border border-red-600 rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
+                        className="text-red-600 font-medium border border-red-600 rounded-lg text-sm px-2 py-2 text-center inline-flex items-center "
                       >
                         Remove
                       </button>
@@ -121,7 +121,7 @@ export default function Wishlist() {
                     <td className="w-min-[160px] md:w-auto md:px-6 md:py-4 text-center">
                       <button
                         type="button"
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
                       >
                         Add to cart
                       </button>
@@ -139,7 +139,7 @@ export default function Wishlist() {
           <button
             type="button"
             onClick={() => navigate("/products")}
-            className="mt-8 text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-md px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="mt-8 text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-md px-5 py-2.5 text-center"
           >
             Return To Products
           </button>

@@ -81,7 +81,7 @@ export default function SignUp() {
 
           {isResponseError && (
             <div
-              className="text-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+              className="text-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50"
               role="alert"
             >
               <span className="font-medium">{isResponseError}</span>
@@ -90,7 +90,7 @@ export default function SignUp() {
 
           {isResponseTrue && (
             <div
-              className="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+              className="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50"
               role="alert"
             >
               <span className="font-medium">Congrats</span>
@@ -100,7 +100,7 @@ export default function SignUp() {
           <div className="mb-5">
             <label
               htmlFor="name"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900"
             >
               Your name:
             </label>
@@ -110,10 +110,10 @@ export default function SignUp() {
               onBlur={handleBlur}
               type="text"
               id="name"
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             />
             {touched.name && errors.name && (
-              <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+              <p className="mt-2 text-sm text-red-600">
                 <span className="font-medium">Oops! {errors.name}</span>
               </p>
             )}
@@ -122,7 +122,7 @@ export default function SignUp() {
           <div className="mb-5">
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900"
             >
               Your email:
             </label>
@@ -132,10 +132,10 @@ export default function SignUp() {
               onBlur={handleBlur}
               type="email"
               id="email"
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             />
             {touched.email && errors.email && (
-              <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+              <p className="mt-2 text-sm text-red-600">
                 <span className="font-medium">Oops! {errors.email}</span>
               </p>
             )}
@@ -144,7 +144,7 @@ export default function SignUp() {
           <div className="mb-5">
             <label
               htmlFor="phone"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900"
             >
               Your phone:
             </label>
@@ -154,10 +154,10 @@ export default function SignUp() {
               onBlur={handleBlur}
               type="tel"
               id="phone"
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             />
             {touched.phone && errors.phone && (
-              <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+              <p className="mt-2 text-sm text-red-600">
                 <span className="font-medium">Oops! {errors.phone}</span>
               </p>
             )}
@@ -166,7 +166,7 @@ export default function SignUp() {
           <div className="mb-5">
             <label
               htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900"
             >
               Your password:
             </label>
@@ -176,10 +176,10 @@ export default function SignUp() {
               onBlur={handleBlur}
               type="password"
               id="password"
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             />
             {touched.password && errors.password && (
-              <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+              <p className="mt-2 text-sm text-red-600">
                 <span className="font-medium">Oops! {errors.password}</span>
               </p>
             )}
@@ -188,7 +188,7 @@ export default function SignUp() {
           <div className="mb-5">
             <label
               htmlFor="rePassword"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900"
             >
               Repeat password:
             </label>
@@ -198,10 +198,10 @@ export default function SignUp() {
               onBlur={handleBlur}
               type="password"
               id="rePassword"
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             />
             {touched.rePassword && errors.rePassword && (
-              <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+              <p className="mt-2 text-sm text-red-600">
                 <span className="font-medium">Oops! {errors.rePassword}</span>
               </p>
             )}
@@ -209,7 +209,7 @@ export default function SignUp() {
 
           <button
             type="submit"
-            className="mx-auto flex justify-center text-center text-white w-1/2 text-lg  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 h-12 disabled:bg-slate-400"
+            className="mx-auto flex justify-center text-center text-white w-1/2 text-lg  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  py-2.5 h-12 disabled:bg-slate-400"
             disabled={!(dirty && isValid)}
           >
             {isSubmitting ? (

@@ -161,15 +161,15 @@ export default function Cart() {
               <button
                 type="button"
                 disabled={isClicked}
-                className="mx-auto md:mx-0 w-32 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-md px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-gray-500"
+                className="mx-auto md:mx-0 w-32 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-md px-5 py-2.5 text-center disabled:bg-gray-500"
               >
                 Checkout
               </button>
             </Link>
           </div>
           <div className="relatvive overflow-x-auto shadow-md sm:rounded-lg">
-            <table className="min-w-[400px] sm:w-full  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-              <thead className="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table className="min-w-[400px] sm:w-full  text-sm text-left rtl:text-right text-gray-500">
+              <thead className="text-sm text-gray-700 uppercase bg-gray-50">
                 <tr>
                   <th scope="col" className="px-16 py-3">
                     <span className="sr-only">Image</span>
@@ -205,7 +205,7 @@ export default function Cart() {
                 {data.data.data.products.map((product) => (
                   <tr
                     key={product.product._id}
-                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    className="bg-white border-b hover:bg-gray-50"
                   >
                     <td className="p-4">
                       <img
@@ -214,10 +214,10 @@ export default function Cart() {
                         alt={product.product.title}
                       />
                     </td>
-                    <td className="w-min-[160px] md:w-auto md:px-6 md:py-4 text-center font-semibold text-gray-900 dark:text-white">
+                    <td className="w-min-[160px] md:w-auto md:px-6 md:py-4 text-center font-semibold text-gray-900">
                       {product.product.title}
                     </td>
-                    <td className="w-min-[160px] md:w-auto md:px-6 md:py-4 text-center font-semibold text-gray-900 dark:text-white">
+                    <td className="w-min-[160px] md:w-auto md:px-6 md:py-4 text-center font-semibold text-gray-900">
                       LE {product.price}
                     </td>
                     <td className="w-min-[160px] md:w-auto md:px-6 md:py-4">
@@ -230,7 +230,7 @@ export default function Cart() {
                             );
                             setIsClicked(true);
                           }}
-                          className="inline-flex items-center justify-center p-1 text-md font-medium h-6 w-6 text-black bg-white border border-gray-300 rounded-full  hover:bg-gray-100  dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                          className="inline-flex items-center justify-center p-1 text-md font-medium h-6 w-6 text-black bg-white border border-gray-300 rounded-full  hover:bg-gray-100 "
                           type="button"
                           disabled={product.count == 1 || isClicked}
                         >
@@ -251,7 +251,7 @@ export default function Cart() {
                             />
                           </svg>
                         </button>
-                        <div className="ms-3 text-center bg-gray-50 w-14 border border-gray-300 text-gray-500 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <div className="ms-3 text-center bg-gray-50 w-14 border border-gray-300 text-gray-500 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1">
                           {product.count}
                         </div>
                         <button
@@ -262,7 +262,7 @@ export default function Cart() {
                             );
                             setIsClicked(true);
                           }}
-                          className="inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-md font-medium text-black bg-white border border-gray-300 rounded-full  hover:bg-gray-100  dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                          className="inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-md font-medium text-black bg-white border border-gray-300 rounded-full  hover:bg-gray-100 "
                           type="button"
                           disabled={isClicked}
                         >
@@ -293,7 +293,7 @@ export default function Cart() {
                           setIsClicked(true);
                         }}
                         disabled={isClicked}
-                        className="text-red-600 font-medium border border-red-600 rounded-lg text-sm px-2 py-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        className="text-red-600 font-medium border border-red-600 rounded-lg text-sm px-2 py-2 text-center inline-flex items-center"
                       >
                         Remove
                       </button>
@@ -309,7 +309,7 @@ export default function Cart() {
                 }}
                 type="button"
                 disabled={isClicked}
-                className="mx-auto w-40 block my-4 text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-md px-5 py-2.5 text-center  dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+                className="mx-auto w-40 block my-4 text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-md px-5 py-2.5 text-center "
               >
                 Clear Cart
               </button>
@@ -339,7 +339,7 @@ export default function Cart() {
           <button
             type="button"
             onClick={() => navigate("/products")}
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-md px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-md px-5 py-2.5 text-center"
           >
             Return To Products
           </button>
