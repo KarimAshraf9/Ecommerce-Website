@@ -63,7 +63,7 @@ export default function CashOrder() {
             token: localStorage.getItem("userToken"),
           },
           params: {
-            url: "http://localhost:5173",
+            url: import.meta.env.VITE_DEPLOYMENT_URL,
           },
         }
       )
