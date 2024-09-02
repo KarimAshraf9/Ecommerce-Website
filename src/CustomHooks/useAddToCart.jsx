@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 function addToCart(id) {
@@ -16,7 +16,12 @@ function addToCart(id) {
 }
 
 export default function useAddToCart() {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: addToCart,
+    onSuccess: () => {
+      queryClient.refetchQueries(["cart"]);
+    },
   });
 }

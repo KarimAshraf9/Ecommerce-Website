@@ -5,12 +5,13 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import { useLocation } from "react-router-dom";
 import useFetchProducts from "../../CustomHooks/useFetchProducts";
 import useGetWishlistItemsSet from "../../CustomHooks/useGetWishlistItemsSet";
+import useGetCartItemsSet from "../../CustomHooks/useGetCartItemsSet";
 
 export default function Products({ showHeading = true }) {
   const [inputSearchvalue, setInputSearchValue] = useState("");
   const [filterData, setFilterData] = useState([]);
-  const wishlistSet = useGetWishlistItemsSet()
-
+  const wishlistSet = useGetWishlistItemsSet();
+  const cartItemsSet = useGetCartItemsSet();
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -63,7 +64,12 @@ export default function Products({ showHeading = true }) {
         <div className="grid md:grid-cols-3 lg:grid-cols-4 md:gap-x-5 gap-y-7">
           {filterData.length ? (
             filterData.map((product) => (
-              <ProductCard key={product._id} product={product} inWishlist={wishlistSet.has(product._id)} />
+              <ProductCard
+                key={product._id}
+                product={product}
+                inWishlist={wishlistSet.has(product._id)}
+                inCart={cartItemsSet.has(product._id)}
+              />
             ))
           ) : (
             <p>No products found.</p>

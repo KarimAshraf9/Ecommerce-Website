@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 function removeFromCart(id) {
@@ -9,7 +9,12 @@ function removeFromCart(id) {
   });
 }
 export default function useRemoveFromCart() {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: removeFromCart,
+    onSuccess: () => {
+      queryClient.refetchQueries(["cart"]);
+    },
   });
 }

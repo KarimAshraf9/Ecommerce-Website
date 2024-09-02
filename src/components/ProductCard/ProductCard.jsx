@@ -5,11 +5,13 @@ import toast from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import useAddToCart from "../../CustomHooks/useAddToCart";
 import { useRemoveFromWishList } from "../../CustomHooks/useRemoveFromWishList";
+import useRemoveFromCart from "../../CustomHooks/useRemoveFromCart";
 
-export default function ProductCard({ product, inWishlist }) {
+export default function ProductCard({ product, inWishlist, inCart }) {
   const { mutate: mututeAddToWishlist } = useAddToWhishList();
   const { mutate: mututeRemoveFromWishlist } = useRemoveFromWishList();
-  const { mutate: mututaCart } = useAddToCart();
+  const { mutate: mutateAddToCart } = useAddToCart();
+  const { mutate: mutateRemoveFromCart } = useRemoveFromCart();
   const queryClient = useQueryClient();
 
   const handleWishlistClick = (event, productId) => {
@@ -39,20 +41,20 @@ export default function ProductCard({ product, inWishlist }) {
     });
   };
 
-  const handleAddToCartClick = (event, productId) => {
+  const handleCartClick = (event, productId) => {
     event.stopPropagation();
     event.preventDefault();
 
     const loadingToastId = toast.loading("Adding...");
-
-    mututaCart(productId, {
+    const mutateFunction = inCart ? mutateRemoveFromCart : mutateAddToCart;
+    mutateFunction(productId, {
       onSuccess: async (data) => {
         await queryClient.invalidateQueries({
           queryKey: ["cart"],
           refetchType: "inactive",
         });
         toast.dismiss(loadingToastId);
-        toast.success(data.data.message, { duration: 1500 });
+        toast.success(data.data.message || 'Product removed successfully from your cart', { duration: 1500 });
       },
 
       onError: () => {
@@ -80,12 +82,14 @@ export default function ProductCard({ product, inWishlist }) {
         <figcaption className="relative border border-transparent pt-10 pb-4 px-4">
           <span
             onClick={(event) => {
-              handleAddToCartClick(event, product._id);
+              handleCartClick(event, product._id);
             }}
             className="bg-white rounded-lg flex justify-center items-center border w-max p-2 absolute top-0 start-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer shadow-lg"
           >
             <i className="fa-solid fa-cart-shopping text-2xl pe-2 text-gray-500 border-e border-e-gray-400"></i>
-            <span className="ps-2 text-red-500 font-bold">ADD TO CART</span>
+            <span className="ps-2 text-red-500 font-bold text-xs">
+              {inCart ? "REMOVE FROM CART" : "ADD TO CART"}
+            </span>
           </span>
           <div>
             <div className="flex justify-between items-center text-xl">
