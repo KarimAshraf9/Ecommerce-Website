@@ -5,14 +5,42 @@ import { useFetchWishList } from "../../CustomHooks/useFetchWishList";
 import { useRemoveFromWishList } from "../../CustomHooks/useRemoveFromWishList";
 import emptyWhislist from "../../assets/images/Empty Whislist.png";
 import { useNavigate } from "react-router-dom";
+import useAddToCart from './../../CustomHooks/useAddToCart';
+import { useState } from "react";
 
 export default function Wishlist() {
   const client = useQueryClient();
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
+const[isClicked , setIsClicked] = useState(false)
   const { isLoading, isError, data } = useFetchWishList();
   const { mutate, isPending } = useRemoveFromWishList();
+  const { mutate: mututaCart } = useAddToCart();
 
-  const navigate = useNavigate();
+  const handleAddToCartClick = (productId) => {
+    const loadingToastId = toast.loading("Adding...");
+
+    mututaCart(productId, {
+      onSuccess: async (data) => {
+        await queryClient.invalidateQueries({
+          queryKey: ["cart"],
+          refetchType: "inactive",
+        });
+        toast.dismiss(loadingToastId);
+        toast.success(data.data.message);
+        setIsClicked(false);
+      },
+
+      onError: () => {
+        toast.dismiss(loadingToastId);
+        toast.error("Something went wrong. Please try again.");
+        setIsClicked(false);
+      },
+    });
+  };
+
+
 
   if (isLoading) {
     return (
@@ -104,15 +132,18 @@ export default function Wishlist() {
                                 )
                               );
                               toast.success(data.data.message);
+                              setIsClicked(false);
                             },
                             onError: () => {
                               toast.error(
                                 "Unexpected error while removing product from your wish list. Try again later!"
                               );
+                              setIsClicked(false);
                             },
                           });
+                          setIsClicked(true);
                         }}
-                        disabled={isPending}
+                        disabled={isClicked}
                         className="text-red-600 font-medium border border-red-600 rounded-lg text-sm px-2 py-2 text-center inline-flex items-center "
                       >
                         Remove
@@ -121,6 +152,11 @@ export default function Wishlist() {
                     <td className="w-min-[160px] md:w-auto md:px-6 md:py-4 text-center">
                       <button
                         type="button"
+                        onClick={() => {
+                          handleAddToCartClick(whishList._id);
+                          setIsClicked(true);
+                        }}
+                        disabled={isClicked}
                         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
                       >
                         Add to cart
