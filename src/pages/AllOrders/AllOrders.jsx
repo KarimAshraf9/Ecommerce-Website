@@ -136,7 +136,7 @@ export default function AllOrders() {
                   position={"center"}
                   theme={{
                     body: {
-                      base: "h-[500px] md:h-[400px] overflow-y-scroll p-6",
+                      base: "h-[500px] md:h-[400px] overflow-y-auto p-6",
                     },
                     root: {
                       base: "sm:w-3/4 mx-auto",
